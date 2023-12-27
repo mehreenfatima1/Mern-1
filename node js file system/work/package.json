@@ -1,0 +1,12 @@
+{
+  "name": "this-is-for-working-purpose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mehreen": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
