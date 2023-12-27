@@ -1,0 +1,14 @@
+{
+  "name": "ternary-operators-and-switch-case",
+  "version": "1.0.0",
+  "description": "third assignment",
+  "main": "index.js",
+  "scripts": {
+    "mehreen": "node index.js"
+  },
+  "keywords": [
+    "mehreen"
+  ],
+  "author": "mehreen",
+  "license": "ISC"
+}
