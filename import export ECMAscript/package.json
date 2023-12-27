@@ -1,0 +1,17 @@
+{
+  "name": "import-export-ecmascript",
+  "version": "1.0.0",
+  "description": "assignment",
+  "main": "index.js",
+  "scripts": {
+    "mehreen": "node index.js",
+    "fatima": "node import.js"
+    
+  },
+  "type":"module",
+  "keywords": [
+    "mehreen"
+  ],
+  "author": "mehreen",
+  "license": "ISC"
+}
