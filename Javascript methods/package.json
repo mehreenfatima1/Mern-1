@@ -1,0 +1,14 @@
+{
+  "name": "javascript-methods",
+  "version": "1.0.0",
+  "description": "assignment 5",
+  "main": "index.js",
+  "scripts": {
+    "mehreen": "node index.js"
+  },
+  "keywords": [
+    "mehreen"
+  ],
+  "author": "mehreen",
+  "license": "ISC"
+}
