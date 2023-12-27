@@ -1,0 +1,14 @@
+{
+  "name": "mehreen",
+  "version": "1.0.0",
+  "description": "mehreen yasir",
+  "main": "index.js",
+  "scripts": {
+    "mehreen":"node index.js"
+  },
+  "keywords": [
+    "mehreen"
+  ],
+  "author": "mehreen",
+  "license": "ISC"
+}
