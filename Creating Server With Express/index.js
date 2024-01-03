@@ -1,0 +1,34 @@
+import express from "express"
+var app = express()
+var port = 3000
+const books = [{ Id: 1, Name: "The Shadow of the Wind", Author: "Carlos Ruiz Zafón", Description: "Barcelona, 1945: A city slowly heals from its war wounds, and Daniel, an antiquarian book dealer's son who mourns the loss of his mother, finds solace in a mysterious book entitled The Shadow of the Wind, by one Julian Carax. But when he sets out to find the author's other works, he makes a shocking discovery: someone has been systematically destroying every copy of every book Carax has written. In fact, Daniel may have the last of Carax's books in existence. Soon Daniel's seemingly innocent quest opens a door into one of Barcelona's darkest secrets--an epic story of murder, madness, and doomed love", Available: "Yes" }, { Id: 2, Name: "To Kill a Mocking Bird", Author: "Harper Lee", Description: "To Kill a Mockingbird is a novel by the American author Harper Lee. It was published in June 1960 and became instantly successful. In the United States, it is widely read in high schools and middle schools. To Kill a Mockingbird has become a classic of modern American literature; a year after its release, it won the Pulitzer Prize. The plot and characters are loosely based on Lee's observations of her family, her neighbors and an event that occurred near her hometown of Monroeville, Alabama, in 1936, when she was ten.", Available: "Yes" }, { Id: 3, Name: "1984", Author: "George Orwell", Description: "Nineteen Eighty-Four (also published as 1984) is a dystopian novel and cautionary tale by English writer George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime. Thematically, it centres on the consequences of totalitarianism, mass surveillance and repressive regimentation of people and behaviours within society.Orwell, a democratic socialist, modelled the authoritarian state in the novel on the Soviet Union in the era of Stalinism, and Nazi Germany. More broadly, the novel examines the role of truth and facts within societies and the ways in which they can be manipulated", Available: "Yes" }, { Id: 4, Name: "The Great Gatsby", Author: "F. Scott Fitzgerald", Description: "The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.", Available: "No" }, { Id: 5, Name: "Harry Potter and the Sorcerer's Stone", Author: "J.K. Rowling", Description: "Harry Potter and the Philosopher's Stone is a fantasy novel written by British author J. K. Rowling. The first novel in the Harry Potter series and Rowling's debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school and with the help of his friends, Ron Weasley and Hermione Granger, he faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry's parents, but failed to kill Harry when he was just 15 months old.", Available: "Yes" }, { Id: 6, Name: "The Catcher in the Rye", Description: "The Catcher in the Rye is a novel by American author J. D. Salinger that was partially published in serial form 1945–46 before being novelized in 1951. Originally intended for adults, it is often read by adolescents for its themes of angst and alienation, and as a critique of superficiality in society.", Author: "J.D. Salinger", Available: "No" }, { Id: 7, Name: "The Hobbit", Description: "The Hobbit, or There and Back Again is a children's fantasy novel by English author J. R. R. Tolkien. It was published in 1937 to wide critical acclaim, being nominated for the Carnegie Medal and awarded a prize from the New York Herald Tribune for best juvenile fiction. The book is recognized as a classic in children's literature and is one of the best-selling books of all time, with over 100 million copies sold.", Author: "J.R.R.Tolkien", Available: "Yes" }, { Id: 8, Name: "Pride and Prejudice", Description: "Pride and Prejudice is the second novel by English author Jane Austen, published in 1813. A novel of manners, it follows the character development of Elizabeth Bennet, the protagonist of the book, who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.", Author: "Jane Austen", Available: "No" }, { Id: 9, Name: "The Da Vinci Code", Description: "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It is Brown's second novel to include the character Robert Langdon: the first was his 2000 novel Angels & Demons. The Da Vinci Code follows symbologist Robert Langdon and cryptologist Sophie Neveu after a murder in the Louvre Museum in Paris causes them to become involved in a battle between the Priory of Sion and Opus Dei over the possibility of Jesus Christ and Mary Magdalene having had a child together.", Author: "Dan Brown", Available: "Yes" }, { Id: 10, Name: "The Hunger Games", Description: "The Hunger Games is a series of young adult dystopian novels written by American author Suzanne Collins. The first three novels are part of a trilogy following teenage protagonist Katniss Everdeen, and the fourth book is a prequel set 64 years before the original.", Author: "Suzanne Collins", Available: "Yes" }]
+
+const users = [{ Id: 1, Name: "Jawwad" }, { Id: 2, Name: "Kanwal" }, { Id: 3, Name: "Fatima" }, { Id: 4, Name: "Amina" }, { Id: 5, Name: "Gohar" }, { Id: 6, Name: "Maryam" }, { Id: 7, Name: "Ali" }, { Id: 8, Name: "Yasir" }, { Id: 9, Name: "Erum" }, { Id: 10, Name: "Muslim" }]
+app.get('/users/:userId/books/:bookId', (req, res) => {
+    const userId = parseInt(req.params.userId)
+    const bookId = parseInt(req.params.bookId)
+
+    const user = users.find(a => a.Id === userId);
+    const book = books.find(b => b.Id === bookId);
+
+    if (!user && !book) {
+        res.send(`The user with ID ${userId} and the book with ID ${bookId} is not found`);
+    } else if (!user) {
+        res.send(`User with Id ${userId} is not found <br>
+        Book Name: ${book.Name}<br>
+        Author: ${book.Author}<br>
+        Description: ${book.Description}<br>
+        Available: ${book.Available}`);
+    }
+    else if (!book) {
+        res.send(`Book with Id ${bookId} is not found<br>
+        User Name: ${user.Name}`)
+    }
+    else {
+        res.send(`User Name: ${user.Name} <br>
+        Book Name: ${book.Name}<br>
+        Author: ${book.Author}<br>
+        Description: ${book.Description}<br>
+        Available: ${book.Available}`)
+    }
+}).listen(port)
