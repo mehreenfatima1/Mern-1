@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../includes/style') %>
+</head>
+
+<body>
+    <header>
+        <%-include("../includes/header")%>
+    </header>
+    <main>
+        <h2>Our products</h2>
+        <%let products=[{Name:"Wipers",imageUrl:"wipers3.jpg"},{Name:"Shoes and Bags",imageUrl:"shoesandbags1.jpg"},{Name:"Vintage Clothing",imageUrl:"vintageclothing1.jpg"}] %>
+        <div class='products'>
+            <% products.forEach(e => { %>
+              <figure>
+                <img src="<%= e.imageUrl %>" alt="<%= e.Name %>" width="30%">
+                <figcaption><%= e.Name %></figcaption>
+              </figure>
+            <% }) %>
+          </div>
+        
+    </main>
+    <footer>
+        <%-include('../includes/footer')%>
+    </footer>
+</body>
+
+</html>

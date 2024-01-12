@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%-include('../includes/style')%>
+</head>
+<body>
+     <header>
+        <%-include('../includes/header') %>
+     </header>
+     <main>
+        <h2>This is AboutUs page</h2>     
+    <div class="parent"><div class="division"><h3>Our Team</h3>
+    <%let members=[{Name:"Asim",Designation:"Manager"},{Name:"Yasir",Designation:"Director"},{Name:"Fida",Designation:"Supervisor"},{Name:"Zain",Designation:"Assistant Manager"}]%>
+    <%for(var i = 0;i<members.length;i++){%>
+        <p>Name:<%=members[i].Name%></p>
+        <p>Designation:<%=members[i].Designation%></p>
+        <%}%>
+
+</div>
+    <div class="division"><h3>Our Mission</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, culpa reiciendis deserunt quis iste laudantium iure repellat rerum atque error est rem commodi doloribus a pariatur reprehenderit veniam porro magnam dicta. Molestias illo accusamus quas eaque amet autem corporis pariatur quia natus magni. Totam temporibus debitis, voluptas quas iste dolore?</p></div>
+    <div class="division"><h3>Our Vision</h3>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam nam temporibus id ex. Inventore voluptates cum sint vitae consectetur deserunt dicta voluptas, repellat saepe quo.</p></div>
+    </main>
+    <footer>
+        <%-include ('../includes/footer')%>
+    </footer>
+</body>
+</html>
